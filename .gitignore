@@ -18,7 +18,9 @@
 # misc
 .DS_Store
 *.pem
-.env.local
+
+# api key
+.env
 
 # debug
 npm-debug.log*
