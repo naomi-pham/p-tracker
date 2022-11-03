@@ -34,7 +34,7 @@ const SignIn = () => {
         formTitle: `font-bold mb-2 text-center`,
         formLink: `underline underline-offset-2`,
         formInputField: `input-field flex flex-col gap-2`,
-        formLabel: `text-lg text-zinc-400`,
+        formLabel: `text-lg text-zinc-400 text-left`,
         formInput: `bg-transparent outline outline-1 outline-zinc-700 p-1 px-3`,
         formButton: `p-3 bg-[#465a7e66] w-full hover:bg-[#465a7e] duration-300`
     }

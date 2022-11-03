@@ -15,11 +15,15 @@ const ProjectDetail = ({project}) => {
         cardSectionTitle: `font-bold opacity-90`,
         projectStatus: `flex items-center justify-center w-fit rounded-full px-2.5 py-0.5 bg-teal-600 hover:bg-teal-500`,
         projectTechnology: `flex w-fit rounded-full px-2.5 py-0.5 bg-gray-700 hover:bg-gray-600`,
-        flexContainer: `flex flex-wrap gap-4`
+        flexContainer: `flex flex-wrap gap-4`,
+        textUnderline: `underline underline-offset-4`
     }
 
     return (
         <div className={style.card}>
+            <Link href={"/"}>
+                <p> <i class='bx bx-left-arrow-alt'></i><span className={style.textUnderline}>Return</span></p>
+            </Link>
             <div>
                 <h2 className={style.cardTitle}>{project.title}</h2>
                 <p className={style.cardDate}>Posted on Oct 22, 2022</p>     
