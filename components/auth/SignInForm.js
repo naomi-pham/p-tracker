@@ -44,7 +44,7 @@ const SignIn = () => {
             <h3 className={style.formTitle}>Log In</h3>
 
             <div>
-                <p className='text-zinc-400'>Don't have an account yet? <Link href={"/signup"} className={style.formLink}>Sign up.</Link> </p>
+                <p className='text-zinc-400'>Dont&apos;t have an account yet? <Link href={"/signup"} className={style.formLink}>Sign up.</Link> </p>
                 <p>{error}</p>
             </div>
 
