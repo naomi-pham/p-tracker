@@ -20,7 +20,7 @@ const ProjectSummary = ({project}) => {
         <h3 className={style.cardTitle}>{project.title}</h3>
         <p className={style.cardDate}>Posted on Oct 22 by <span className={style.cardDateSpan}>Naomi</span></p>
       </div>
-      {/* <Progress value={project.progress} />           */}
+      <Progress value={project.progress} />          
       <div className={style.cardBody}>    
         <div className='flex flex-wrap gap-4'>
           <div className={style.projectStatus}>{project.status}</div>

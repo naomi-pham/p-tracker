@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import Progress from '../UI/Progress'
+import {CircularProgressbar} from "react-circular-progressbar"
 
 const ProjectDetail = ({project}) => {
 

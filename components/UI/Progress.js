@@ -1,16 +1,13 @@
 import React from 'react'
-/* import Circle from "react-circle" */
+import {CircularProgressbar} from "react-circular-progressbar"
 
-const Progress = (props) => {
+const Progress = ({value}) => {
   return (
     <div>
-{/*         <Circle 
-            progress={props.value} 
-            size="100"
-            progressColor='teal'
-            bgColor='#d4d4d4'
-            textColor='#d4d4d8'
-        /> */}
+        <CircularProgressbar
+          value={value}
+          text={`${value}%`}
+        />
     </div>
   )
 }
