@@ -45,7 +45,7 @@ const SignIn = () => {
 
             <div>
                 <p className='text-zinc-400'>Don't have an account yet? <Link href={"/signup"} className={style.formLink}>Sign up.</Link> </p>
-                {error}
+                <p>{error}</p>
             </div>
 
             <div className={style.formInputField}>
