@@ -33,7 +33,7 @@ const Project = () => {
 
     useEffect(() => {
         getProjectDoc()
-    }, []) 
+    }, [getProjectDoc]) 
 
     const style = {
         wrapper: `sm:px-8 lg:px-20 flex justify-center items-center text-center mt-8 lg:w-9/12 mx-auto`
