@@ -1,6 +1,6 @@
 # Responsive React Portfolio
 
-🚀 [Demo link](https://naomi-pham.netlify.app/)
+🚀 [Demo link](https://tracker-p.vercel.app/)
 
 ![ptracker-home](https://raw.githubusercontent.com/naomi-pham/p-tracker/main/public/home.png)
 
