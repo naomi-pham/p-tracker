@@ -1,15 +1,14 @@
 import Link from 'next/link'
 import React from 'react'
 import Progress from '../UI/Progress'
-import {CircularProgressbar} from "react-circular-progressbar"
 
 const ProjectDetail = ({project}) => {
 
     const style = {
-        card: `flex flex-col gap-8 mx-auto w-full p-8 text-left`,
+        card: `flex flex-col gap-8 mx-auto w-full px-8 pt-8 pb-16 text-left`,
         cardTitle: `text-3xl sm:text-5xl font-bold mb-2`,
         cardDate: `text-lg opacity-60`,
-        cardBody: `flex flex-col gap-8`,
+        cardBody: `flex flex-col gap-12`,
         cardText: `text-lg opacity-80`,
         cardSection: `flex flex-col gap-4 items-start`,
         cardSectionTitle: `font-bold opacity-90`,
@@ -71,8 +70,8 @@ const ProjectDetail = ({project}) => {
                 <div className={style.cardSection}>
                     <h4 className={style.cardSectionTitle}>Links</h4>
                     <div className={style.flexContainer}>
-                        {project.demoLink && <Link href={project.demoLink} className={style.projectTechnology} target={'_blank'}>Demo</Link>}
-                        {project.sourceCode && <Link href={project.demoLink} className={style.projectTechnology} target={'_blank'}>Source code</Link>}
+                        {project.demoLink && <Link href={project.demoLink} className={style.projectStatus} target={'_blank'}>Demo</Link>}
+                        {project.sourceCode && <Link href={project.demoLink} className={style.projectStatus} target={'_blank'}>Source code</Link>}
                     </div>
                 </div>
             </div>

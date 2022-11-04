@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useState} from "react"
+import {createContext, useEffect, useState} from "react"
 import { db } from "../firebase/firebaseConfig"
 import {query, collection, onSnapshot, addDoc} from "firebase/firestore"
 
@@ -8,14 +8,12 @@ export const ProjectContextProvider = ({children}) => {
 
     const [projects, setProjects] = useState([])
 
-    // Create project
-
+    // Create a new project
     const CreateProject = (input) => {
         return addDoc(collection(db, "projects"), input)
     }
 
     // Read project from firebase
-
     useEffect(() => {
         const q = query(collection(db, "projects"))
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -27,8 +25,6 @@ export const ProjectContextProvider = ({children}) => {
         })
         return () => unsubscribe
     },[])
-
-    
 
     // Update project in firebase
 

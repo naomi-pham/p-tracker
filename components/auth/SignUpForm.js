@@ -2,11 +2,23 @@ import React, { useState, useContext } from 'react'
 import {UserContext} from "../../context/AuthContext"
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { db } from '../../firebase/firebaseConfig'
+import { addDoc, collection } from 'firebase/firestore'
 
 const SignUp = () => {
 
-    const [email, setEmail] = useState("")
-    const [password, setPassWord] = useState("")
+    const [users, setUsers] = useState({
+        email: "", 
+        password: "",
+        firstName: "",
+        lastName: ""
+    })
+
+    // add new account to users collection at firebase
+    const addUsers = (users) => {
+        return addDoc(collection(db, "users"), users)
+    }
+
     const [error, setError] = useState("")
 
     let router = useRouter()
@@ -17,7 +29,8 @@ const SignUp = () => {
         e.preventDefault()
         setError("")
         try {
-            await createUser(email, password)
+            await createUser(users.email, users.password)
+            addUsers(users)
             console.log("success")
             // navigate to account page after sign-up
             router.push("/")
@@ -25,6 +38,14 @@ const SignUp = () => {
             setError(e.message)
             console.log(e.message)
         }
+    }
+
+    const handleChange = (e) => {
+        setUsers(prevUsers => ({
+            ...prevUsers,
+            [e.target.name]: e.target.value
+        }))
+
     }
 
     const style = {
@@ -45,6 +66,30 @@ const SignUp = () => {
                 <p className='text-zinc-400'>Already had an account? <Link href={"/login"} className={style.formLink}>Sign in.</Link> </p>
                 <p>{error}</p>
             </div>
+
+            <div className={style.formInputField}>
+                <label htmlFor='firstName' className={style.formLabel}>First name</label>
+                <input 
+                    type="firstName" 
+                    id="firstName" 
+                    name="firstName"
+                    value={users.firstName}
+                    onChange={handleChange} 
+                    className={style.formInput}
+                />
+            </div>
+
+            <div className={style.formInputField}>
+                <label htmlFor='lastName' className={style.formLabel}>Last name</label>
+                <input 
+                    type="lastName" 
+                    id="lastName" 
+                    name="lastName"
+                    value={users.lastName}
+                    onChange={handleChange} 
+                    className={style.formInput}
+                />
+            </div>
         
             <div className={style.formInputField}>
                 <label htmlFor='email' className={style.formLabel}>Email</label>
@@ -52,8 +97,8 @@ const SignUp = () => {
                     type="email" 
                     id="email" 
                     name="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)} 
+                    value={users.email}
+                    onChange={handleChange} 
                     className={style.formInput}
                 />
             </div>
@@ -64,8 +109,8 @@ const SignUp = () => {
                     type="password" 
                     id="password" 
                     name="password"
-                    value={password}
-                    onChange={(e) => setPassWord(e.target.value)} 
+                    value={users.password}
+                    onChange={handleChange} 
                     className={style.formInput}
                 />
             </div>

@@ -23,12 +23,10 @@ const Project = () => {
 
     // Get project doc by ID (slug: project.id)
     const getProjectDoc = async () => {
-        if (slug) {
-            const projectDoc = doc(db, "projects", slug)
-            const data = await getDoc(projectDoc)
-            // console.log({id: data.id})
-            setProject({...data.data(), id: data.id})
-        }
+        const projectDoc = doc(db, "projects", slug)
+        const data = await getDoc(projectDoc)
+        setProject({...data.data(), id: data.id})
+        // console.log({id: data.id})
     }
 
     useEffect(() => {

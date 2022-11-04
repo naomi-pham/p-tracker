@@ -4,7 +4,7 @@ import Progress from '../UI/Progress'
 const ProjectSummary = ({project}) => {
 
   const style = {
-    card: `flex flex-col gap-8 items-center sm:items-start w-full mx-auto text-center p-8 sm:text-left border border-zinc-700`,
+    card: `flex flex-col gap-6 items-start w-full mx-auto p-8 text-left border border-zinc-700`,
     cardHeader: `flex flex-col gap-3`,
     cardTitle: `font-bold`,
     cardDate: `text-base opacity-80`,
@@ -19,8 +19,8 @@ const ProjectSummary = ({project}) => {
       <div className={style.cardHeader}>
         <h3 className={style.cardTitle}>{project.title}</h3>
         <p className={style.cardDate}>Posted on Oct 22 by <span className={style.cardDateSpan}>Naomi</span></p>
-      </div>
-      <Progress value={project.progress} />          
+      </div>  
+      <Progress value={project.progress} /> 
       <div className={style.cardBody}>    
         <div className='flex flex-wrap gap-4'>
           <div className={style.projectStatus}>{project.status}</div>
